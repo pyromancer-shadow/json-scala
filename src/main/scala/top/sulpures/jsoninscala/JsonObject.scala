@@ -57,7 +57,7 @@ class JsonObject extends Iterable[(String, Any)]{
     map.keysIterator
   }
 
-  override def toIterator: Iterator[(String, Any)] = {
+  override def iterator: Iterator[(String, Any)] = {
     map.toIterator
   }
 }
