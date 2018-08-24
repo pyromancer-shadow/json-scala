@@ -5,7 +5,7 @@ import scala.util.parsing.json.JSONObject
 /**
   * Created by shadow on 2018/8/14.
   */
-class JsonObject {
+class JsonObject extends Iterable[(String, Any)]{
   private val map = scala.collection.mutable.HashMap[String, Any]()
 
   def put(key: String, value: Any): Unit ={
@@ -51,6 +51,14 @@ class JsonObject {
 
   override def toString: String = {
     JSONObject(map.toMap).toString()
+  }
+
+  def keys(): Iterator[String] = {
+    map.keysIterator
+  }
+
+  override def toIterator: Iterator[(String, Any)] = {
+    map.toIterator
   }
 }
 
